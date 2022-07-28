@@ -16,6 +16,9 @@ class Note:
     def __eq__(self, other) -> bool:
         return self.name == other.name and self.dur == other.dur
 
+    def __str__(self) -> str:
+        return f"({self.name}, {self.dur})"
+
 class Motif:
 
     notes: list[Note]
@@ -23,6 +26,6 @@ class Motif:
     def __init__(self, notes: list[Note]):
         self.notes = notes
 
-    def non_rest_indices(self):
+    def non_rest_indices(self) -> list[int]:
         return [i for i, n in enumerate(self.notes) if not n.is_rest()]
 
