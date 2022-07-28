@@ -14,9 +14,13 @@ from transform import transform
 '''
 
 
-# used as a mock here
-def select_last_note(motif: Motif):
+# selection functions used as mocks here
+def select_last_note(motif: Motif) -> int:
     return len(motif.notes) - 1
+
+
+def select_first_note(motif: Motif) -> int:
+    return 0
 
 
 def test_last_note_deletion():
@@ -26,3 +30,10 @@ def test_last_note_deletion():
     transformed_motif = transform(motif, select_last_note)
     assert_motifs_are_equal(expected_motif, transformed_motif)
 
+
+def test_first_note_deletion():
+    motif = mary_had_a_little_lamb()
+    expected_motif = mary_had_a_little_lamb_with_first_note_as_rest()
+
+    transformed_motif = transform(motif, select_first_note)
+    assert_motifs_are_equal(expected_motif, transformed_motif)
