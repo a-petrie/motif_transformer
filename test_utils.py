@@ -165,6 +165,9 @@ def mary_had_a_little_lamb_with_fifth_note_as_rest() -> Motif:
     ]
     return Motif(notes)
 
+'''
+    Determined using random.seed = 42
+'''
 def mary_had_a_little_lamb_rests_expected_random() -> Motif:
     notes = [
         Note('B', 0.5),
@@ -182,6 +185,9 @@ def mary_had_a_little_lamb_rests_expected_random() -> Motif:
     ]
     return Motif(notes)
 
+'''
+    Determined using random.seed = 42
+'''
 def mary_had_a_little_lamb_off_beats_expected_random() -> Motif:
     notes = [
         Note('rest', 0.5),
