@@ -1,5 +1,28 @@
+class Note:
+
+    name: str
+    dur: float
+
+    def __init__(self, name, dur):
+        self.name = name
+        self.dur = dur
+
+    def is_rest(self) -> bool:
+        return self.name == "rest"
+
+    def get_dur(self) -> float:
+        return self.dur
+
+    def __eq__(self, other) -> bool:
+        return self.name == other.name and self.dur == other.dur
 
 class Motif:
 
-    def __init__(self, notes: list[tuple[str, float]]):
+    notes: list[Note]
+
+    def __init__(self, notes: list[Note]):
         self.notes = notes
+
+    def non_rest_indices(self):
+        return [i for i, n in enumerate(self.notes) if not n.is_rest()]
+
