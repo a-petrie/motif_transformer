@@ -38,10 +38,19 @@ def test_first_note_deletion():
     transformed_motif = transform(motif, select_first_note)
     assert expected_motif.notes == transformed_motif.notes
 
+
 def test_last_note_deletion_with_rests():
     motif = mary_had_a_little_lamb_with_rest_between_notes()
     expected_motif = mary_had_a_little_lamb_with_last_note_as_rest_and_rest_between_notes()
 
     transformed_motif = transform(motif, select_last_note)
+    assert expected_motif.notes == transformed_motif.notes
+
+
+def test_first_note_deletion_with_rests():
+    motif = mary_had_a_little_lamb_with_rest_between_notes()
+    expected_motif = mary_had_a_little_lamb_with_first_note_as_rest_and_rest_between_notes()
+
+    transformed_motif = transform(motif, select_first_note)
     assert expected_motif.notes == transformed_motif.notes
 
